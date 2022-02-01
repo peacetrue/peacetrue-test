@@ -1,6 +1,6 @@
 = 测试组件
-xiayx <xiayouxue@hotmail.com>
-v1.0, 2019-08-23: SNAPSHOT
+peace <xiayouxue@hotmail.com>
+v1.0.0, 2019-08-23: SNAPSHOT
 :doctype: docbook
 :toc: left
 :numbered:
@@ -10,7 +10,4 @@ v1.0, 2019-08-23: SNAPSHOT
 :testsourcedir: src/test/java
 :source-highlighter: highlightjs
 
-//查看 http://peacetrue.github.io/public/peacetrue-test/index.html[详情^]
-
-.TestUtils
-* 获取类对应源码所在的绝对目录
+查看 http://peacetrue.github.io/public/peacetrue-test/index.html[详情^]
