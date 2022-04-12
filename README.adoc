@@ -1,6 +1,6 @@
 = 测试组件
 peace <xiayouxue@hotmail.com>
-v1.0.0, 2019-08-23: SNAPSHOT
+v1.0.0, 2022-04-12: SNAPSHOT
 :doctype: docbook
 :toc: left
 :numbered:
@@ -17,7 +17,3 @@ v1.0.0, 2019-08-23: SNAPSHOT
 源码结构需要符合 MAVEN 规范：
 
 image::image-2022-02-01-10-19-12-843.png[]
-
-=== 获取项目绝对路径
-
-=== 获取测试资源绝对路径
