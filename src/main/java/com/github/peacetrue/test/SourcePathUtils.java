@@ -1,5 +1,6 @@
 package com.github.peacetrue.test;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -12,11 +13,11 @@ import java.util.Objects;
  */
 public abstract class SourcePathUtils {
 
-    public static final String PATH_SRC = "/src";
-    public static final String PATH_MAIN = "/main";
-    public static final String PATH_TEST = "/test";
-    public static final String PATH_JAVA = "/java";
-    public static final String PATH_RESOURCES = "/resources";
+    public static final String PATH_SRC = File.separatorChar + "src";
+    public static final String PATH_MAIN = File.separatorChar + "main";
+    public static final String PATH_TEST = File.separatorChar + "test";
+    public static final String PATH_JAVA = File.separatorChar + "java";
+    public static final String PATH_RESOURCES = File.separatorChar + "resources";
     public static final String PATH_SRC_MAIN = PATH_SRC + PATH_MAIN;
     public static final String PATH_SRC_MAIN_JAVA = PATH_SRC_MAIN + PATH_JAVA;
     public static final String PATH_SRC_MAIN_RESOURCES = PATH_SRC_MAIN + PATH_RESOURCES;
