@@ -1,6 +1,10 @@
 name: peacetrue-test
 title: 测试组件
 version: master
+asciidoc:
+  attributes:
+    numbered: '@'
+    project-name: 'peacetrue-test'
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc

@@ -43,7 +43,13 @@ class SourcePathUtilsTest {
 
     @Test
     void getCustomAbsolutePath() {
-        String absolutePath = SourcePathUtils.getCustomAbsolutePath(true, true, "/test");
+        String absolutePath = SourcePathUtils.getCustomAbsolutePath(false, false, "/test");
+        Assertions.assertTrue(absolutePath.endsWith("/src/main/java/test"));
+        absolutePath = SourcePathUtils.getCustomAbsolutePath(false, true, "/test");
+        Assertions.assertTrue(absolutePath.endsWith("/src/main/resources/test"));
+        absolutePath = SourcePathUtils.getCustomAbsolutePath(true, false, "/test");
+        Assertions.assertTrue(absolutePath.endsWith("/src/test/java/test"));
+        absolutePath = SourcePathUtils.getCustomAbsolutePath(true, true, "/test");
         Assertions.assertTrue(absolutePath.endsWith("/src/test/resources/test"));
     }
 

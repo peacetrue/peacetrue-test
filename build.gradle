@@ -1,3 +1,4 @@
 group "com.github.peacetrue"
 version "${peaceTestVersion}${tailSnapshot}"
 description "测试组件"
+

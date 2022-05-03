@@ -25,11 +25,11 @@ public abstract class SourcePathUtils {
     public static final String PATH_SRC_TEST_JAVA = PATH_SRC_TEST + PATH_JAVA;
     public static final String PATH_SRC_TEST_RESOURCES = PATH_SRC_TEST + PATH_RESOURCES;
 
-    protected SourcePathUtils() {
+    private SourcePathUtils() {
     }
 
     /**
-     * 获取项目绝对路径
+     * 获取项目绝对路径。
      *
      * @return 项目绝对路径
      */
@@ -38,7 +38,7 @@ public abstract class SourcePathUtils {
     }
 
     /**
-     * 获取指定的绝对路径
+     * 获取指定的绝对路径。
      *
      * @param isTest      是否测试目录
      * @param isResources 是否资源目录
@@ -54,7 +54,7 @@ public abstract class SourcePathUtils {
     }
 
     /**
-     * 获取测试资源的绝对路径
+     * 获取测试资源的绝对路径。
      *
      * @param paths 附加的路径
      * @return 指定的测试资源绝对路径
