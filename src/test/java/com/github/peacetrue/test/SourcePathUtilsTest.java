@@ -15,6 +15,18 @@ import static com.github.peacetrue.test.SourcePathUtils.*;
 class SourcePathUtilsTest {
 
     @Test
+    void classToPath() {
+        Assertions.assertEquals("/com/github/peacetrue/test",
+                SourcePathUtils.classToPath(SourcePathUtilsTest.class, true, true));
+        Assertions.assertEquals("/com/github/peacetrue/test/SourcePathUtilsTest",
+                SourcePathUtils.classToPath(SourcePathUtilsTest.class, true, false));
+        Assertions.assertEquals("com/github/peacetrue/test",
+                SourcePathUtils.classToPath(SourcePathUtilsTest.class, false, true));
+        Assertions.assertEquals("com/github/peacetrue/test/SourcePathUtilsTest",
+                SourcePathUtils.classToPath(SourcePathUtilsTest.class, false, false));
+    }
+
+    @Test
     void paths() {
         List<String> paths = Arrays.asList(
                 PATH_SRC,

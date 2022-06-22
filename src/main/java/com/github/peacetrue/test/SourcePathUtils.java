@@ -28,6 +28,28 @@ public abstract class SourcePathUtils {
     private SourcePathUtils() {
     }
 
+
+    /**
+     * 转换类名（包名）为路径。
+     * <p>
+     * 例如：
+     * <pre>
+     * com.github.peacetrue.test.SourcePathUtils
+     * -》
+     * com/github/peacetrue/test/SourcePathUtils
+     * </pre>
+     *
+     * @param clazz      类
+     * @param isAbsolute 是否绝对路径
+     * @param isPackage  是否包名
+     * @return 类名（包名）路径
+     */
+    public static String classToPath(Class<?> clazz, boolean isAbsolute, boolean isPackage) {
+        String name = isPackage ? clazz.getPackage().getName() : clazz.getName();
+        String path = name.replace('.', File.separatorChar);
+        return isAbsolute ? File.separatorChar + path : path;
+    }
+
     /**
      * 获取项目绝对路径。
      *
@@ -46,7 +68,8 @@ public abstract class SourcePathUtils {
      * @return 指定的绝对路径
      */
     public static String getCustomAbsolutePath(boolean isTest, boolean isResources, String... paths) {
-        StringBuilder builder = new StringBuilder(getProjectAbsolutePath()).append(PATH_SRC)
+        StringBuilder builder = new StringBuilder(getProjectAbsolutePath())
+                .append(PATH_SRC)
                 .append(isTest ? PATH_TEST : PATH_MAIN)
                 .append(isResources ? PATH_RESOURCES : PATH_JAVA);
         Arrays.asList(paths).forEach(builder::append);
