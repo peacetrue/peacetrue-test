@@ -1,4 +1,7 @@
+plugins {
+    id "com.github.peacetrue.gradle.build-convention" version "${peaceGradleVersion}${tailSnapshot}"
+}
+
 group "com.github.peacetrue"
 version "${peaceTestVersion}${tailSnapshot}"
 description "测试组件"
-
