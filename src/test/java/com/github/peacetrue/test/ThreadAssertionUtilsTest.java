@@ -4,7 +4,6 @@ import org.jooq.lambda.Unchecked;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Stream;
 
