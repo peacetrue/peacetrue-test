@@ -1,11 +1,12 @@
 package com.github.peacetrue.test;
 
 import org.jooq.lambda.Unchecked;
-import org.jooq.lambda.fi.util.function.CheckedConsumer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -26,14 +27,18 @@ class ThreadAssertionUtilsTest {
     private void run() {
         Thread thread = new Thread(() -> fail("just fail!"));
         thread.start();
-        Unchecked.consumer((CheckedConsumer<Thread>) Thread::join).accept(thread);
+        Thread thread2 = new Thread(() -> {
+            throw new NullPointerException();
+        });
+        thread2.start();
+        Stream.of(thread, thread2).forEach(Unchecked.consumer(Thread::join));
     }
 
     @Test
     void catchAssertionErrors() {
         Map<Thread, AssertionError> errors = ThreadAssertionUtils.catchAssertionErrors();
         run();
-        Assertions.assertThrows(Throwable.class, () ->
+        Assertions.assertThrows(AssertionError.class, () ->
                 ThreadAssertionUtils.propagateAssertionError(errors)
         );
     }
@@ -42,6 +47,10 @@ class ThreadAssertionUtilsTest {
     void propagateAssertionError() {
         Assertions.assertThrows(Throwable.class, () ->
                 ThreadAssertionUtils.propagateAssertionError(this::run)
+        );
+        Assertions.assertDoesNotThrow(() ->
+                ThreadAssertionUtils.propagateAssertionError(() -> {
+                })
         );
     }
 
