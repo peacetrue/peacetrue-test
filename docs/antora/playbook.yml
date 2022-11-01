@@ -1,0 +1,22 @@
+# antora generate playbook.yml
+# antora generate --clean --to-dir public playbook.yml
+site:
+  title: 测试组件
+  url: https://peacetrue.github.io
+  start_page: peacetrue-test::index.adoc
+asciidoc:
+  extensions:
+    - asciidoctor-plantuml
+  attributes:
+    plantuml-server-url: 'http://www.plantuml.com/plantuml@'
+    numbered: '@'
+content:
+  branches: master
+  sources:
+  - url: ../../
+    start_path: docs/antora
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+

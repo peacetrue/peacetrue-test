@@ -1,9 +1,13 @@
 package com.github.peacetrue.test;
 
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,10 +52,16 @@ class SourcePathUtilsTest {
                 String.join("\n", paths));
     }
 
+    //tag::getProjectAbsolutePath[]
+
+    /** 获取当前项目绝对路径 */
     @Test
     void getProjectAbsolutePath() {
-        Assertions.assertTrue(SourcePathUtils.getProjectAbsolutePath().endsWith("peacetrue-test"));
+        String projectAbsolutePath = SourcePathUtils.getProjectAbsolutePath();
+        Assertions.assertTrue(Files.exists(Paths.get(projectAbsolutePath)), "存在当前项目目录");
+        Assertions.assertTrue(projectAbsolutePath.endsWith("peacetrue-test"), "当前项目目录为 peacetrue-test");
     }
+    //end::getProjectAbsolutePath[]
 
     @Test
     void getCustomAbsolutePath() {
@@ -65,9 +75,31 @@ class SourcePathUtilsTest {
         Assertions.assertTrue(absolutePath.endsWith("/src/test/resources/test"));
     }
 
+    //tag::getTestResourceAbsolutePath[]
+
+    /** 获取测试资源的绝对路径 */
     @Test
     void getTestResourceAbsolutePath() {
         String absolutePath = SourcePathUtils.getTestResourceAbsolutePath("/test");
-        Assertions.assertTrue(absolutePath.endsWith("/src/test/resources/test"));
+        Assertions.assertTrue(
+                absolutePath.endsWith("/peacetrue-test/src/test/resources/test"),
+                "Maven 标准源码结构的测试资源目录"
+        );
+    }
+    //end::getTestResourceAbsolutePath[]
+
+
+    /** 帮助 Antora 文档 */
+//    @Test
+    @SneakyThrows
+    void helpAntora() {
+        // 输出 Antora 文档所需的项目文件结构
+        String projectAbsolutePath = SourcePathUtils.getProjectAbsolutePath();
+        new ProcessBuilder()
+                .directory(new File(projectAbsolutePath))
+                .command("tree", "-L", "2", "src")
+                .redirectOutput(new File(projectAbsolutePath + "/docs/antora/modules/ROOT/examples/structure.txt"))
+                .start()
+                .waitFor();
     }
 }

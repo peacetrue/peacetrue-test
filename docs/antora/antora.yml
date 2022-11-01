@@ -4,7 +4,9 @@ version: master
 asciidoc:
   attributes:
     numbered: '@'
-    app-name: 'peacetrue-test'
+    website: https://peacetrue.github.io
+    app-group: com.github.peacetrue
+    app-name: peacetrue-test
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc

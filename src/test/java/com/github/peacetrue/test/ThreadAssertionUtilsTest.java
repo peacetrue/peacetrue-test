@@ -15,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 class ThreadAssertionUtilsTest {
 
     /**
-     * 线程中断言失败，不影响主线程。
-     * 这样不合适，需要传播到主线程。
+     * 子线程内断言失败，不影响父线程。
+     * 这样不合适，需要传播到父线程。
      */
     @Test
     void basic() {

@@ -1,6 +1,8 @@
-= 简介
+= 概述
 :website: https://peacetrue.github.io
+:app-group: com.github.peacetrue
 :app-name: peacetrue-test
+:app-version: 1.0.3
 :foresight-repo-id: 7ea26852-ae34-48b6-99f1-4995704437ab
 :imagesdir: docs/antora/modules/ROOT/assets/images
 
@@ -8,13 +10,48 @@ image:https://img.shields.io/github/workflow/status/peacetrue/{app-name}/build/m
 image:https://snyk.io/test/github/peacetrue/{app-name}/badge.svg["Snyk",link="https://app.snyk.io/org/peacetrue"]
 image:https://api-public.service.runforesight.com/api/v1/badge/success?repoId={foresight-repo-id}["Foresight",link="https://foresight.thundra.io/repositories/github/peacetrue/{app-name}/test-runs"]
 image:https://img.shields.io/codecov/c/github/peacetrue/{app-name}/master["Codecov",link="https://app.codecov.io/gh/peacetrue/{app-name}"]
+image:https://img.shields.io/nexus/r/{app-group}/{app-name}?label={app-name}&server=https%3A%2F%2Foss.sonatype.org%2F["{app-name}",link="https://search.maven.org/search?q={app-name}"]
 
 //@formatter:off
-{website}/{app-name}/[{app-name}] 是一个测试组件，目前仅包含 2 个类：
 
-`SourcePathUtils`::
-源码路径工具类，根据符合 MAVEN 规范的源码结构，获取源码绝对路径。
+== 简介（What）
 
-image::image-2022-02-01-10-19-12-843.png[]
-`ThreadAssertionUtils`::
-线程断言测试工具类。线程中断言失败，不影响主线程，需要传播到主线程中。
+{website}/{app-name}/[{app-name}] 是一个测试组件，包含：
+
+. 获取源码绝对路径
+. 线程内断言测试
+. 查看对象信息
+
+== 背景（Why）
+
+在执行单元测试时，会遭遇一些测试场景下的问题。
+比如，测试时，向项目内文档目录下输出内容，需要获取文档的绝对路径，
+如果直接使用本机绝对路径，更改了项目路径，就会导致出错，
+需要能够动态获取项目路径，再基于此路径找到文档路径。
+{app-name} 就是用来解决这些在测试过程中遇到的不便之处。
+
+== 用法（How）
+
+引用如下 Gradle 依赖：
+
+[source%nowrap,gradle,subs="specialchars,attributes"]
+----
+implementation "{app-group}:{app-name}:{app-version}"
+----
+
+//TODO 链接坐标转换器
+如需转换为其他格式的 GAV 坐标，可使用 http://bee.peacetrue.cn/function/conversion/gav[坐标转换器^]。
+
+关于类库的详细用法，可查看 https://oss.sonatype.org/service/local/repositories/releases/archive/com/github/peacetrue/{app-name}/{app-version}/{app-name}-{app-version}-javadoc.jar/!/index.html[Javadoc^]。
+
+== 参与者（Who）
+
+. peace(xiayouxue@hotmail.com)
+
+== 活动（When）
+
+初始提交于 2020-01-08，最近提交于 2022-11-01。
+
+== 许可证（License）
+
+https://github.com/peacetrue/{app-name}/blob/master/LICENSE[Apache License 2.0^]

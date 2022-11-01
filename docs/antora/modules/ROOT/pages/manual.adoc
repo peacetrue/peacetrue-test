@@ -1,0 +1,25 @@
+= 用户手册
+
+== 源码路径
+
+.获取当前项目绝对路径：
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/SourcePathUtilsTest.java[tag=getProjectAbsolutePath]
+----
+
+当前项目结构如下（符合 Maven 标准源码结构）：
+
+[source%nowrap,txt,subs="specialchars,attributes"]
+----
+include::example$structure.txt[]
+----
+
+.获取测试资源的绝对路径：
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/SourcePathUtilsTest.java[tag=getTestResourceAbsolutePath]
+----
+
+== 线程内断言测试
+

@@ -1,11 +1,11 @@
-= 版本说明
+= 版本变更
 
 :numbered!: ''
 //@formatter:off
 
 == 1.0.0
 
-实现基本功能。
+实现源码路径获取功能。
 
 == 1.0.1
 
@@ -17,4 +17,5 @@
 
 == 1.0.3
 
-添加线程断言测试工具类：`ThreadAssertionUtils`。
+. 实现线程内断言测试工具类：`ThreadAssertionUtils`
+. 实现对象信息查看工具类：`BeanUtils`

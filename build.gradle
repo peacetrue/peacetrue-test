@@ -1,7 +1,9 @@
 plugins {
-    id "com.github.peacetrue.gradle.build-convention" version "${peaceGradleVersion}${tailSnapshot}"
+    id "com.github.peacetrue.gradle.build-convention" version "${peaceGradleVersion}${tailSnapshot}" apply false
 }
 
 group "com.github.peacetrue"
-version "${peaceTestVersion}${tailSnapshot}"
+version "${peacetrueTestVersion}${tailSnapshot}"
 description "测试组件"
+
+apply plugin: "com.github.peacetrue.gradle.build-convention"
