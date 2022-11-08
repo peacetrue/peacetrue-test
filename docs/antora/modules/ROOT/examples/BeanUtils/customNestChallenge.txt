@@ -1,4 +1,0 @@
-
-	getOwner(UserPrincipal)            : xiayx
-	name(String)                       : posix
-	readAttributes(PosixFileAttributes): sun.nio.fs.UnixFileAttributes@6fb2b972
