@@ -1,0 +1,6 @@
+{
+  "other" : false,
+  "regularFile" : true,
+  "symbolicLink" : false,
+  "directory" : false
+}

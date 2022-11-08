@@ -1,0 +1,20 @@
+
+	getOwner(UserPrincipal)                                       : xiayx
+	name(String)                                                  : posix
+	readAttributes(PosixFileAttributes).isSymbolicLink(boolean)   : false
+	readAttributes(PosixFileAttributes).permissions(Set)[0]       : OWNER_WRITE
+	readAttributes(PosixFileAttributes).permissions(Set)[1]       : OWNER_EXECUTE
+	readAttributes(PosixFileAttributes).permissions(Set)[2]       : OTHERS_EXECUTE
+	readAttributes(PosixFileAttributes).permissions(Set)[3]       : OTHERS_READ
+	readAttributes(PosixFileAttributes).permissions(Set)[4]       : GROUP_READ
+	readAttributes(PosixFileAttributes).permissions(Set)[5]       : OWNER_READ
+	readAttributes(PosixFileAttributes).permissions(Set)[6]       : GROUP_EXECUTE
+	readAttributes(PosixFileAttributes).group(GroupPrincipal)     : staff
+	readAttributes(PosixFileAttributes).size(long)                : 5766
+	readAttributes(PosixFileAttributes).isOther(boolean)          : false
+	readAttributes(PosixFileAttributes).isDirectory(boolean)      : false
+	readAttributes(PosixFileAttributes).lastModifiedTime(FileTime): 2022-11-01T12:43:45Z
+	readAttributes(PosixFileAttributes).creationTime(FileTime)    : 2022-11-01T12:43:45Z
+	readAttributes(PosixFileAttributes).owner(UserPrincipal)      : xiayx
+	readAttributes(PosixFileAttributes).lastAccessTime(FileTime)  : 2022-11-01T16:20:20Z
+	readAttributes(PosixFileAttributes).isRegularFile(boolean)    : true

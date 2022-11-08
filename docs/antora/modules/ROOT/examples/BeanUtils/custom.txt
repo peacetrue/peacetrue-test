@@ -1,0 +1,13 @@
+
+	isSymbolicLink(boolean)   : false
+	permissions(Set)          : [OWNER_READ, OWNER_EXECUTE, GROUP_EXECUTE, OWNER_WRITE, OTHERS_EXECUTE, GROUP_READ, OTHERS_READ]
+	group(GroupPrincipal)     : staff
+	size(long)                : 5766
+	isOther(boolean)          : false
+	isDirectory(boolean)      : false
+	lastModifiedTime(FileTime): 2022-11-01T12:43:45Z
+	creationTime(FileTime)    : 2022-11-01T12:43:45Z
+	fileKey(Object)           : (dev=1000005,ino=66442405)
+	owner(UserPrincipal)      : xiayx
+	lastAccessTime(FileTime)  : 2022-11-01T16:20:20Z
+	isRegularFile(boolean)    : true

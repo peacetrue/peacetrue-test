@@ -19,5 +19,103 @@
 
 == 查看对象信息
 
-调用所有无参带返回值的方法，调用方法获取其返回值。
+如何查看 `java.nio.file.attribute.PosixFileAttributes` 对象的信息呢？
 
+=== 命令行
+
+可以先通过命令行，大概了解一下 `PosixFileAttributes` 中应该包含哪些属性？
+
+[source%nowrap,bash]
+----
+$ ls -l | grep gradlew
+-rwxr-xr-x    1 xiayx  staff   5766 Nov  1 20:43 gradlew
+-rw-r--r--    1 xiayx  staff   2674 Nov  1 20:43 gradlew.bat
+----
+
+=== 调试
+
+image::WechatIMG561.png[width=50%]
+
+owner、group、key 为 `null`，其他的属性也能看懂，但属性名不太友好。
+
+=== toString
+
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/BeanUtilsTest.java[tag=toString]
+----
+
+输出对象引用地址：
+
+[source%nowrap,txt,subs="specialchars,attributes"]
+----
+include::example$BeanUtils/toString.txt[]
+----
+
+=== Jackson
+
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/BeanUtilsTest.java[tag=jackson]
+----
+
+仅输出对象的部分属性：
+
+[source%nowrap,json,subs="specialchars,attributes"]
+----
+include::example$BeanUtils/jackson.txt[]
+----
+
+=== 自定义
+
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/EvolutionBeanUtils.java[tag=view]
+----
+
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/BeanUtilsTest.java[tag=custom]
+----
+
+输出所有属性，完美!？：
+
+[source%nowrap,txt,subs="specialchars,attributes"]
+----
+include::example$BeanUtils/custom.txt[]
+----
+
+=== 嵌套对象的挑战
+
+来自 `java.nio.file.attribute.PosixFileAttributeView` 的挑战！
+
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/BeanUtilsTest.java[tag=customNestChallenge]
+----
+
+输出结果中 readAttributes 属性为引用地址：
+
+[source%nowrap,txt,subs="specialchars,attributes"]
+----
+include::example$BeanUtils/customNestChallenge.txt[]
+----
+
+=== 处理嵌套对象
+
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/EvolutionBeanUtils.java[tag=viewNest]
+----
+
+[source%nowrap,java,subs="specialchars,attributes"]
+----
+include::example$src/test/java/com/github/peacetrue/test/BeanUtilsTest.java[tag=customNest]
+----
+
+可以输出嵌套对象，但有些不需要的嵌套对象也被处理了，比如 `UserPrincipal`：
+
+[source%nowrap,txt,subs="specialchars,attributes"]
+----
+include::example$BeanUtils/customNest.txt[]
+----

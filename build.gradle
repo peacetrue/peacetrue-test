@@ -1,9 +1,13 @@
 plugins {
-    id "com.github.peacetrue.gradle.build-convention" version "${peaceGradleVersion}${tailSnapshot}" apply false
+    id "com.github.peacetrue.gradle.build-convention" version "${peaceGradleVersion}${tailSnapshot}"
 }
 
 group "com.github.peacetrue"
 version "${peacetrueTestVersion}${tailSnapshot}"
 description "测试组件"
 
-apply plugin: "com.github.peacetrue.gradle.build-convention"
+dependencies {
+    testImplementation "com.github.peacetrue:peacetrue-common"
+    testImplementation "com.fasterxml.jackson.core:jackson-databind"
+    testImplementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+}

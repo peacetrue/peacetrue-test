@@ -19,3 +19,7 @@
 
 . 实现线程内断言测试工具类：`ThreadAssertionUtils`
 . 实现对象信息查看工具类：`BeanUtils`
+
+== 1.0.4
+
+添加 `JacocoUtils`。
