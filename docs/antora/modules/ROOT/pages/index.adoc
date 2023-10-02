@@ -2,13 +2,12 @@
 :website: https://peacetrue.github.io
 :app-group: com.github.peacetrue
 :app-name: peacetrue-test
-:app-version: 1.0.3
-:foresight-repo-id: 7ea26852-ae34-48b6-99f1-4995704437ab
+:app-version: 1.0.4
 :imagesdir: docs/antora/modules/ROOT/assets/images
 
-image:https://img.shields.io/github/workflow/status/peacetrue/{app-name}/build/master["GitHub Workflow Status",link="https://github.com/peacetrue/{app-name}/actions"]
+image:https://img.shields.io/github/actions/workflow/status/peacetrue/{app-name}/main.yml?branch=master["GitHub Workflow Status",link="https://github.com/peacetrue/{app-name}/actions"]
 image:https://snyk.io/test/github/peacetrue/{app-name}/badge.svg["Snyk",link="https://app.snyk.io/org/peacetrue"]
-image:https://api-public.service.runforesight.com/api/v1/badge/success?repoId={foresight-repo-id}["Foresight",link="https://foresight.thundra.io/repositories/github/peacetrue/{app-name}/test-runs"]
+image:https://img.shields.io/testspace/tests/peacetrue/peacetrue:{app-name}/master["test space",link="https://peacetrue.testspace.com/"]
 image:https://img.shields.io/codecov/c/github/peacetrue/{app-name}/master["Codecov",link="https://app.codecov.io/gh/peacetrue/{app-name}"]
 image:https://img.shields.io/nexus/r/{app-group}/{app-name}?label={app-name}&server=https%3A%2F%2Foss.sonatype.org%2F["{app-name}",link="https://search.maven.org/search?q={app-name}"]
 
@@ -50,7 +49,7 @@ implementation "{app-group}:{app-name}:{app-version}"
 
 == 活动（When）
 
-初始提交于 2020-01-08，最近提交于 2022-11-01。
+初始提交于 2020-01-08，最近提交于 2022-11-08。
 
 == 许可证（License）
 

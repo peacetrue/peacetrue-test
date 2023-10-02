@@ -7,7 +7,15 @@ version "${peacetrueTestVersion}${tailSnapshot}"
 description "测试组件"
 
 dependencies {
+    compileOnly "org.projectlombok:lombok:1.18.24"
+    annotationProcessor "org.projectlombok:lombok:1.18.24"
     testImplementation "com.github.peacetrue:peacetrue-common"
     testImplementation "com.fasterxml.jackson.core:jackson-databind"
     testImplementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+}
+
+test {
+    if (JavaVersion.current() > JavaVersion.VERSION_1_8) {
+        jvmArgs("--add-opens", "java.base/sun.nio.fs=ALL-UNNAMED")
+    }
 }
